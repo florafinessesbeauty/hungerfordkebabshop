@@ -153,7 +153,10 @@ function createCard(item) {
   const btn = document.createElement('button');
   btn.className = 'btn menu-add-btn';
   btn.textContent = 'Add';
-  btn.addEventListener('click', () => recommend(item));
+  btn.addEventListener('click', () => {
+    addToCart(item);
+    recommend(item);
+  });
 
   div.appendChild(btn);
   return div;
@@ -184,6 +187,68 @@ function pairWith(item) {
   if (name.includes('box')) return 'Fruit Shoot for kids + extra sauces (👨‍👩‍👧 family favorite)';
   return 'Chips In Pitta + choice of sauce (🥙 simple & tasty)';
 }
+
+// --- Cart state & helpers ---
+let cart = [];
+
+// Extract numeric price from strings like "from £9.50" or "£7.00"
+function parsePrice(str) {
+  if (!str) return 0;
+  const matches = str.match(/\d+(\.\d{1,2})?/g);
+  if (!matches || matches.length === 0) return 0;
+  return Number.parseFloat(matches[matches.length - 1]);
+}
+
+function addToCart(item) {
+  const existing = cart.find(p => p.name === item.name);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ name: item.name, price: parsePrice(item.price), qty: 1 });
+  }
+  updateCart();
+}
+
+function emptyCart() {
+  cart = [];
+  updateCart();
+}
+
+function updateCart() {
+  const cartTable = document.getElementById('carttable');
+  if (!cartTable) return;
+
+  cartTable.innerHTML = '';
+  let total = 0;
+  let qty = 0;
+
+  cart.forEach(product => {
+    const row = document.createElement('tr');
+    const subtotal = product.price * product.qty;
+
+    row.innerHTML = `
+      <td>${product.name} x${product.qty}</td>
+      <td>£${subtotal.toFixed(2)}</td>
+    `;
+    cartTable.appendChild(row);
+
+    total += subtotal;
+    qty += product.qty;
+  });
+
+  const qtyEl = document.getElementById('itemsquantity');
+  const totalEl = document.getElementById('total');
+  if (qtyEl) qtyEl.textContent = qty;
+  if (totalEl) totalEl.textContent = total.toFixed(2);
+}
+
+// --- Hook up empty cart button after DOM ready ---
+document.addEventListener('DOMContentLoaded', () => {
+  const emptyBtn = document.getElementById('emptycart');
+  if (emptyBtn) {
+    emptyBtn.addEventListener('click', emptyCart);
+  }
+});
 
 // Mount categories
 function mountCategory(categoryKey) {
