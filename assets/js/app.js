@@ -1,12 +1,12 @@
 // Brand interactions: AI chat toggle
+// app.js
+// AI chat toggle
 (function() {
   const fab = document.getElementById('ai-fab');
   const chat = document.getElementById('aiChat');
   if (fab && chat) {
     fab.addEventListener('click', () => {
-      const isOpen = chat.style.display === 'block';
-      chat.style.display = isOpen ? 'none' : 'block';
-      chat.setAttribute('aria-modal', (!isOpen).toString());
+      chat.classList.toggle('open');
     });
   }
 })();
@@ -135,13 +135,19 @@ function createCard(item) {
   header.className = 'item-header';
   header.innerHTML = `<span>${item.name}</span><span class="price">${item.price || ''}</span>`;
 
-  const desc = document.createElement('p');
-  desc.className = 'desc';
-  desc.textContent = item.desc || '';
+  if (item.desc) {
+    const desc = document.createElement('p');
+    desc.className = 'desc';
+    desc.textContent = item.desc;
+    div.appendChild(desc);
+  }
 
-  const variants = document.createElement('p');
-  variants.className = 'variants';
-  variants.textContent = item.variants ? `Available: ${item.variants}` : '';
+  if (item.variants) {
+    const variants = document.createElement('p');
+    variants.className = 'variants';
+    variants.textContent = `Available: ${item.variants}`;
+    div.appendChild(variants);
+  }
 
   const btn = document.createElement('button');
   btn.className = 'btn menu-add-btn';
@@ -149,19 +155,21 @@ function createCard(item) {
   btn.addEventListener('click', () => recommend(item));
 
   div.appendChild(header);
-  if (item.desc) div.appendChild(desc);
-  if (item.variants) div.appendChild(variants);
   div.appendChild(btn);
   return div;
 }
 
-// Simple AI recommendation logic
+// AI recommendation logic
 function recommend(item) {
   const chat = document.getElementById('aiChat');
-  chat.style.display = 'block';
-  chat.setAttribute('aria-modal', 'true');
+  chat.classList.add('open');
+
+  // Clear previous recommendation
+  const oldMsg = chat.querySelector('.recommend-msg');
+  if (oldMsg) oldMsg.remove();
 
   const message = document.createElement('p');
+  message.className = 'recommend-msg';
   message.innerHTML = `<strong>Recommended with:</strong> ${pairWith(item)}`;
   chat.appendChild(message);
 }
@@ -180,11 +188,20 @@ function pairWith(item) {
 // Mount categories
 function mountCategory(categoryKey) {
   const container = document.querySelector(`.menu-grid[data-category="${categoryKey}"]`);
-  if (!container) return;
+  if (!container || !MENU[categoryKey]) return;
   MENU[categoryKey].forEach(item => container.appendChild(createCard(item)));
 }
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+  // Theme toggle
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  }
+
+  // Render menu
   Object.keys(MENU).forEach(mountCategory);
 });
