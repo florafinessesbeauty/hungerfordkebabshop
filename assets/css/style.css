@@ -5,8 +5,13 @@
   --charcoal: #0f1013;
   --muted: #b7c1d1;
 
-  --primary: var(--blue);
-  --accent: var(--gold);
+  /* Default theme: light */
+  --bg: var(--white);
+  --text: #000;
+}
+
+body.dark {
+  /* Dark theme overrides */
   --bg: var(--charcoal);
   --text: var(--white);
 }
@@ -39,7 +44,7 @@ header {
   top: 0;
   z-index: 100;
   background: #000;
-  border-bottom: 3px solid var(--accent);
+  border-bottom: 3px solid var(--gold);
 }
 
 .header-inner {
@@ -73,7 +78,7 @@ nav a {
 }
 nav a:hover {
   opacity: 1;
-  color: var(--accent);
+  color: var(--gold);
 }
 
 .hero {
@@ -94,7 +99,7 @@ nav a:hover {
 }
 
 .btn {
-  background: var(--accent);
+  background: var(--gold);
   color: #000;
   padding: 12px 22px;
   border-radius: 999px;
@@ -106,7 +111,7 @@ nav a:hover {
 }
 .btn:hover {
   transform: translateY(-2px);
-  background: var(--primary);
+  background: var(--blue);
   color: #fff;
 }
 .btn-small {
@@ -121,8 +126,8 @@ nav a:hover {
 }
 
 .info-bar {
-  background: #0b0d10;
-  border: 1px solid rgba(255,255,255,0.08);
+  background: #f5f5f5;
+  border: 1px solid rgba(0,0,0,0.08);
   padding: 16px;
   border-radius: 12px;
   text-align: center;
@@ -134,7 +139,7 @@ nav a:hover {
   margin: 4px 0;
 }
 .holiday-message {
-  color: var(--accent);
+  color: var(--gold);
 }
 .muted {
   color: var(--muted);
@@ -144,8 +149,8 @@ nav a:hover {
   font-size: 1.6rem;
   margin: 24px 0 12px;
   padding-bottom: 8px;
-  border-bottom: 2px solid var(--accent);
-  color: var(--accent);
+  border-bottom: 2px solid var(--gold);
+  color: var(--blue);
 }
 
 .menu-grid {
@@ -155,14 +160,14 @@ nav a:hover {
 }
 
 .menu-item {
-  background: #101316;
-  border: 1px solid rgba(255,255,255,0.08);
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
   padding: 16px;
   border-radius: 12px;
   transition: border-color 0.2s, transform 0.15s;
 }
 .menu-item:hover {
-  border-color: var(--accent);
+  border-color: var(--gold);
   transform: translateY(-1px);
 }
 .item-header {
@@ -171,7 +176,7 @@ nav a:hover {
   font-weight: 700;
 }
 .price {
-  color: var(--accent);
+  color: var(--gold);
 }
 .desc {
   font-size: 0.95rem;
@@ -189,7 +194,7 @@ nav a:hover {
 
 .delivery-table {
   margin-top: 12px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(0,0,0,0.08);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -200,10 +205,10 @@ nav a:hover {
   padding: 10px 12px;
 }
 .delivery-row:nth-child(odd) {
-  background: #0c0f12;
+  background: #f9f9f9;
 }
 .delivery-row.header {
-  background: var(--primary);
+  background: var(--blue);
   color: #fff;
   font-weight: 700;
 }
@@ -212,7 +217,7 @@ nav a:hover {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: var(--accent);
+  background: var(--gold);
   color: #000;
   padding: 15px;
   border-radius: 50%;
@@ -244,6 +249,9 @@ nav a:hover {
   padding: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   z-index: 200;
+}
+.ai-chat.open {
+  display: block;
 }
 .ai-chat h4 {
   margin-bottom: 8px;
