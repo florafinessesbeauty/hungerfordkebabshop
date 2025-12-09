@@ -1,0 +1,21 @@
+.btn-small {
+	padding: 5px 15px;
+	font-size: 0.9rem;
+	margin-top: 10px;
+}
+
+.christmas-message {
+	color: var(--accent);
+}
+
+.ai-assistant {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.ai-assistant:focus {
+	outline: 2px solid var(--accent);
+	border-radius: 4px;
+}
