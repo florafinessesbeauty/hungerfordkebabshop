@@ -3,20 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Shortened title to under 70 characters -->
   <title>Charcoal Grill Hungerford | Kebab, Pizza &amp; Burgers</title>
-  <meta name="description" content="Charcoal Grill, 128 High Street, Hungerford RG17 0DL. Fresh kebabs, stone-baked pizzas, burgers &amp; sides. Local delivery from £1.80 up to 7.5 miles. Call 01488 683600.">
+  <meta name="description" content="Charcoal Grill, 128 High Street, Hungerford RG17 0DL. Fresh kebabs, pizzas, burgers &amp; sides. Local delivery from £1.80 up to 7.5 miles. Call 01488 683600.">
   <link rel="canonical" href="https://florafinessesbeauty.github.io/hungerfordkebabshop/">
   <link rel="icon" href="logo.png" type="image/png">
 
-  <!-- Open Graph -->
+  <!-- Social meta -->
   <meta property="og:title" content="Charcoal Grill Hungerford">
   <meta property="og:description" content="Best kebab shop in Hungerford. Fresh, fast, flame-grilled. Delivery &amp; takeaway.">
   <meta property="og:image" content="logo.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://florafinessesbeauty.github.io/hungerfordkebabshop/">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Charcoal Grill Hungerford">
   <meta name="twitter:description" content="Kebabs, pizzas, burgers. Delivery &amp; takeaway in Hungerford.">
@@ -24,41 +22,6 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- JSON-LD Restaurant + OpeningHours -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Restaurant",
-    "name": "Charcoal Grill Hungerford",
-    "image": "https://florafinessesbeauty.github.io/hungerfordkebabshop/logo.png",
-    "telephone": "+44 1488 683600",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "128 High Street",
-      "addressLocality": "Hungerford",
-      "postalCode": "RG17 0DL",
-      "addressCountry": "GB"
-    },
-    "servesCuisine": ["Kebab","Turkish","Pizza","Burgers"],
-    "priceRange": "££",
-    "url": "https://florafinessesbeauty.github.io/hungerfordkebabshop/",
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "16:00",
-        "closes": "23:30"
-      }
-    ],
-    "acceptsReservations": "False",
-    "areaServed": "Hungerford and surrounding areas",
-    "potentialAction": {
-      "@type": "OrderAction",
-      "target": "tel:+441488683600"
-    }
-  }
-  </script>
 </head>
 <body>
 
@@ -75,7 +38,6 @@
       <a href="#menu">Menu</a>
       <a href="#delivery">Delivery</a>
       <a href="tel:+441488683600" class="btn btn-small">Call&nbsp;01488&nbsp;683600</a>
-      <!-- Theme toggle button belongs here -->
       <button id="theme-toggle" type="button" class="btn-small">🌙 / ☀️</button>
     </nav>
   </div>
@@ -88,14 +50,65 @@
 </section>
 
 <main>
-  <section class="container info-bar" aria-label="Shop info">
+  <section class="container info-bar">
     <h3>Opening Hours</h3>
     <p>Tue–Sun: 4:00pm – 11:30pm &nbsp; | &nbsp; Monday Closed</p>
     <p class="holiday-message">🎄 Merry Christmas to all our valued customers</p>
     <p class="muted">Order online on our official website — no service charge.</p>
   </section>
 
-  <!-- menu and delivery sections unchanged -->
+  <!-- Menu grids -->
+  <section id="menu" class="container">
+    <h3 class="menu-category">Meal Deals</h3>
+    <div class="menu-grid" data-category="mealDeals"></div>
+
+    <h3 class="menu-category">Family Boxes</h3>
+    <div class="menu-grid" data-category="familyBoxes"></div>
+
+    <h3 class="menu-category">Pizzas</h3>
+    <div class="menu-grid" data-category="pizzas"></div>
+
+    <h3 class="menu-category">Kebabs &amp; Wraps</h3>
+    <div class="menu-grid" data-category="kebabsWraps"></div>
+
+    <h3 class="menu-category">Burgers</h3>
+    <div class="menu-grid" data-category="burgers"></div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="container gallery">
+    <h3>Our Food Gallery</h3>
+    <div class="gallery-grid">
+      <img src="assets/images/kebab.jpg" alt="Charcoal grilled kebab">
+      <img src="assets/images/pizza.jpg" alt="Stone baked pizza">
+      <img src="assets/images/burger.jpg" alt="Juicy burger">
+      <img src="assets/images/chicken.jpg" alt="Chicken shish">
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="container map">
+    <h3>Find Us</h3>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!...etc..."
+      title="Google Maps location of Charcoal Grill Hungerford"
+      class="map-frame"
+      allowfullscreen
+      loading="lazy"></iframe>
+  </section>
+
+  <!-- Reviews -->
+  <section class="container reviews">
+    <h3>Customer Reviews</h3>
+    <div class="review-card">
+      <p>"Went in person to get a pizza and chips… staff were welcoming and fast!"</p>
+      <small>— Riva Sangani ⭐⭐⭐⭐⭐</small>
+    </div>
+    <div class="review-card">
+      <p>"Ordered 3 times this week… Ali’s smiling face makes it worth it!"</p>
+      <small>— Elton Beqiri ⭐⭐⭐⭐⭐</small>
+    </div>
+  </section>
 </main>
 
 <button id="ai-fab" type="button">Open AI Food Assistant</button>
@@ -117,7 +130,7 @@
 
 <footer id="contact">
   <h3>Charcoal Grill Hungerford</h3>
-  <p>📞 01488&nbsp;683600 &nbsp; • &nbsp; 128 High Street, Hungerford, RG17 0DL</p>
+  <p>📞 01488&nbsp;683600 • 128 High Street, Hungerford, RG17 0DL</p>
   <p>Delivery up to 7.5 miles • Local delivery £1.80 • Card payments accepted</p>
   <div class="policy">
     <p>© 2025 Charcoal Grill • Privacy policy • Terms</p>
@@ -126,18 +139,5 @@
 </footer>
 
 <script src="assets/js/app.js" defer></script>
-<script>
-  const aiFab = document.getElementById('ai-fab');
-  const aiDialog = document.getElementById('aiChat');
-  if (aiFab && aiDialog) {
-    aiFab.addEventListener('click', () => {
-      if (typeof aiDialog.showModal === 'function') {
-        aiDialog.showModal();
-      } else {
-        aiDialog.setAttribute('open', '');
-      }
-    });
-  }
-</script>
 </body>
 </html>

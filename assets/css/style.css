@@ -1,19 +1,20 @@
 :root {
-  --blue: #0b2a55;     /* logo blue */
-  --gold: #d4af37;     /* rich gold accent */
+  --blue: #0b2a55;
+  --gold: #d4af37;
   --white: #ffffff;
   --charcoal: #0f1013;
-  --muted: #b7c1d1;
+  --muted-light: #555;   /* darker muted for light mode */
+  --muted-dark: #b7c1d1; /* lighter muted for dark mode */
 
-  /* Default theme: light */
   --bg: var(--white);
   --text: #000;
+  --muted: var(--muted-light);
 }
 
 body.dark {
-  /* Dark theme overrides */
   --bg: var(--charcoal);
   --text: var(--white);
+  --muted: var(--muted-dark);
 }
 
 * {
@@ -31,12 +32,12 @@ html, body {
 }
 
 a {
-  color: var(--accent);
+  color: var(--gold);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 a:hover {
-  color: var(--white);
+  color: var(--blue);
 }
 
 header {
@@ -255,6 +256,45 @@ nav a:hover {
 }
 .ai-chat h4 {
   margin-bottom: 8px;
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.gallery-grid img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Reviews */
+.reviews {
+  margin-top: 40px;
+}
+.review-card {
+  background: var(--bg);
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.review-card small {
+  color: var(--muted);
+}
+
+/* Map */
+.map iframe {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-top: 16px;
 }
 
 footer {

@@ -134,6 +134,7 @@ function createCard(item) {
   const header = document.createElement('div');
   header.className = 'item-header';
   header.innerHTML = `<span>${item.name}</span><span class="price">${item.price || ''}</span>`;
+  div.appendChild(header);
 
   if (item.desc) {
     const desc = document.createElement('p');
@@ -154,7 +155,6 @@ function createCard(item) {
   btn.textContent = 'Add';
   btn.addEventListener('click', () => recommend(item));
 
-  div.appendChild(header);
   div.appendChild(btn);
   return div;
 }
@@ -176,13 +176,13 @@ function recommend(item) {
 
 function pairWith(item) {
   const name = item.name.toLowerCase();
-  if (name.includes('doner')) return 'Chips & Cheese + Garlic Mayo';
-  if (name.includes('chicken')) return 'Hot Wings & Chips + BBQ Sauce';
-  if (name.includes('pizza')) return 'Garlic Bread with Cheese + Pepsi (1.5L)';
-  if (name.includes('burger')) return 'Onion Rings (10pcs) + Coke (330ml)';
-  if (name.includes('wrap')) return 'Mozzarella Fingers + Fanta (330ml)';
-  if (name.includes('box')) return 'Fruit Shoot for kids + extra sauces';
-  return 'Chips In Pitta + choice of sauce';
+  if (name.includes('doner')) return 'Chips & Cheese + Garlic Mayo (⭐ popular in reviews)';
+  if (name.includes('chicken')) return 'Hot Wings & Chips + BBQ Sauce (🔥 recommended by locals)';
+  if (name.includes('pizza')) return 'Garlic Bread with Cheese + Pepsi (🍕 top combo)';
+  if (name.includes('burger')) return 'Onion Rings + Coke (🍔 classic combo)';
+  if (name.includes('wrap')) return 'Mozzarella Fingers + Fanta (🥤 refreshing)';
+  if (name.includes('box')) return 'Fruit Shoot for kids + extra sauces (👨‍👩‍👧 family favorite)';
+  return 'Chips In Pitta + choice of sauce (🥙 simple & tasty)';
 }
 
 // Mount categories
