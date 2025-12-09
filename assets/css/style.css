@@ -312,3 +312,20 @@ footer h3 {
   color: #9aa3ad;
   margin-top: 12px;
 }
+.cart-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+}
+.cart-container thead th {
+  text-align: left;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 6px;
+}
+.cart-container tbody td {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.cart-container .btn {
+  margin-top: 10px;
+}

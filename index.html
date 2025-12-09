@@ -90,11 +90,28 @@
   <section class="container map">
     <h3>Find Us</h3>
     <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!...etc..."
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d311.0360857710597!2d-1.51477392150229!3d51.41612339313873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876ab540998f349%3A0x77e68c3dea915df6!2sHungerford%20Kebab%20House!5e0!3m2!1sen!2suk!4v1765298358347!5m2!1sen!2suk"
       title="Google Maps location of Charcoal Grill Hungerford"
       class="map-frame"
       allowfullscreen
       loading="lazy"></iframe>
+  </section>
+
+  <!-- Cart -->
+  <section class="container cart-container">
+    <h3>Your Cart</h3>
+    <table aria-label="Shopping cart">
+      <thead>
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="carttable"></tbody>
+    </table>
+    <p><strong>Items:</strong> <span id="itemsquantity">0</span></p>
+    <p><strong>Total:</strong> £<span id="total">0.00</span></p>
+    <button id="emptycart" type="button" class="btn btn-small">Empty Cart</button>
   </section>
 
   <!-- Reviews -->
