@@ -271,15 +271,11 @@ document.addEventListener('DOMContentLoaded', () => {
   Object.keys(MENU).forEach(mountCategory);
 
   // Toggle cart open/close
-document.addEventListener('DOMContentLoaded', () => {
   const cartPanel = document.querySelector('.cart-container');
-  const fab = document.getElementById('ai-fab'); // reuse or add a cart button
-
+  const fab = document.getElementById('ai-fab');
   if (fab && cartPanel) {
     fab.addEventListener('click', () => {
       cartPanel.classList.toggle('open');
     });
   }
-}); // ✅ this closes the DOMContentLoaded block
-
-})
+});
