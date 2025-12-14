@@ -312,6 +312,32 @@ footer h3 {
   color: #9aa3ad;
   margin-top: 12px;
 }
+
+/* Slide-in Cart */
+.cart-container {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 320px;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: -4px 0 12px rgba(0,0,0,0.3);
+  transition: right 0.3s ease;
+  z-index: 300;
+  padding: 20px;
+  overflow-y: auto;
+}
+.cart-container.open {
+  right: 0;
+}
+
+.cart-container h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: var(--blue);
+}
+
 .cart-container table {
   width: 100%;
   border-collapse: collapse;
@@ -328,4 +354,7 @@ footer h3 {
 }
 .cart-container .btn {
   margin-top: 10px;
+  width: 100%;
 }
+
+

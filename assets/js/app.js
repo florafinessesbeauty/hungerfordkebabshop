@@ -269,4 +269,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render menu
   Object.keys(MENU).forEach(mountCategory);
-});
+
+  // Toggle cart open/close
+document.addEventListener('DOMContentLoaded', () => {
+  const cartPanel = document.querySelector('.cart-container');
+  const fab = document.getElementById('ai-fab'); // reuse or add a cart button
+
+  if (fab && cartPanel) {
+    fab.addEventListener('click', () => {
+      cartPanel.classList.toggle('open');
+    });
+  }
+}); // ✅ this closes the DOMContentLoaded block
+
+})
